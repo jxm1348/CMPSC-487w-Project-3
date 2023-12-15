@@ -20,7 +20,7 @@
     </ul>
 
     <div id="addTenant" class="tab-content">
-        <form id="tenantForm">
+        <form id="tenantForm" onsubmit="addOrUpdateTenant(); return false;">
             <label for="tenantName">Tenant Name:</label>
             <input type="text" id="tenantName" name="tenantName" required>
 
@@ -39,7 +39,7 @@
             <label for="apartmentNumber">Apartment Number:</label>
             <input type="text" id="apartmentNumber" name="apartmentNumber" required>
 
-            <button type="button" onclick="submitAddTenant()">Add Tenant</button>
+            <button type="submit">Add Tenant</button>
         </form>
     </div>
 
@@ -63,17 +63,6 @@
             <button type="submit">Delete Tenant</button>
         </form>
     </div>
-
-<script>
-    function showTab(tabName) {
-        const tabs = document.querySelectorAll('.tab-content');
-        tabs.forEach(tab => {
-            tab.style.display = 'none';
-        });
-
-        document.getElementById(tabName).style.display = 'block';
-    }
-</script>
-
-</body>
-</html>
+    <script src="managerController.js"></script>
+    </body>
+    </html>

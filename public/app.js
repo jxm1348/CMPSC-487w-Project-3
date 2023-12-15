@@ -1,27 +1,21 @@
 const express = require('express');
-const mysql = require('mysql2');
 const bodyParser = require('body-parser');
+const loginController = require('./loginController');
+const tenantController = require('./tenantController');
+const managerController = require('./managerController');
+const staffController = require('./staffController');
+
 const app = express();
-const port = process.env.PORT || 3001;
+const port = 3000;
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
+app.use('/login', loginController);
+app.use('/tenant', tenantController);
+app.use('/manager', managerController);
+app.use('/staff', staffController);
+
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });
-
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'Josh',
-    password: 'TempPassword',
-    database: 'project3',
-});
-
-// Connect to the database
-db.connect((err) => {
-    if (err) {
-        console.error('Database connection error:', err);
-        return;
-    }
-    console.log('Connected to the database');
-});
-

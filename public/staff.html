@@ -2,9 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Requests - Staff</title>
+    <link rel="stylesheet" href="staff.css">
 </head>
 <body>
 
+<div class="top-banner">
+    <h1>Maintenance Requests - Staff</h1>
+</div>
+
+<div class="center-container">
+    <div class="filters">
+        <label for="apartmentFilter">Apartment Number:</label>
+        <input type="text" id="apartmentFilter" name="apartmentFilter">
+
+        <label for="areaFilter">Area:</label>
+        <input type="text" id="areaFilter" name="areaFilter">
+
+        <label for="dateRangeFilter">Date Range:</label>
+        <input type="date" id="startDateFilter" name="startDateFilter">
+        <span> to </span>
+        <input type="date" id="endDateFilter" name="endDateFilter">
+
+        <label for="statusFilter">Status:</label>
+        <select id="statusFilter" name="statusFilter">
+            <option value="">All</option>
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+        </select>
+
+        <button onclick="applyFilters()">Apply Filters</button>
+    </div>
+
+    <table id="requestTable">
+        <thead>
+        <tr>
+            <th>Request ID</th>
+            <th>Apartment Number</th>
+            <th>Area</th>
+            <th>Description</th>
+            <th>Date and Time</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Populate this section dynamically with JavaScript based on the filtered requests -->
+        </tbody>
+    </table>
+</div>
+
+<script src="staffController.js"></script>
 </body>
 </html>
