@@ -2,9 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Request Form</title>
+    <link rel="stylesheet" href="tenant.css">
 </head>
 <body>
+
+<div class="top-banner">
+    <h1>Maintenance Request Form</h1>
+</div>
+
+<div class="center-container">
+    <form id="maintenanceForm">
+        <label for="apartmentNumber">Apartment Number:</label>
+        <input type="text" id="apartmentNumber" name="apartmentNumber" required>
+
+        <label for="areaOfProblem">Area of Problem:</label>
+        <input type="text" id="areaOfProblem" name="areaOfProblem" required>
+
+        <label for="problemDescription">Problem Description:</label>
+        <input type="text" id="problemDescription" name="problemDescription" required>
+
+        <label for="optionalPhoto">Optional Photo:</label>
+        <input type="file" id="optionalPhoto" name="optionalPhoto">
+
+        <button type="submit">Submit Request</button>
+    </form>
+</div>
 
 </body>
 </html>

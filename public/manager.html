@@ -2,9 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenant Management</title>
+    <link rel="stylesheet" href="manager.css">
 </head>
 <body>
+
+<div class="top-banner">
+    <h1>Tenant Management</h1>
+</div>
+
+<div class="center-container">
+    <ul class="tabs">
+        <li class="tab" onclick="showTab('addTenant')">Add Tenant</li>
+        <li class="tab" onclick="showTab('moveTenant')">Move Tenant</li>
+        <li class="tab" onclick="showTab('deleteTenant')">Delete Tenant</li>
+    </ul>
+
+    <div id="addTenant" class="tab-content">
+        <form id="tenantForm">
+            <label for="tenantName">Tenant Name:</label>
+            <input type="text" id="tenantName" name="tenantName" required>
+
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="checkInDate">Check-In Date:</label>
+            <input type="date" id="checkInDate" name="checkInDate" required>
+
+            <label for="checkOutDate">Check-Out Date:</label>
+            <input type="date" id="checkOutDate" name="checkOutDate">
+
+            <label for="apartmentNumber">Apartment Number:</label>
+            <input type="text" id="apartmentNumber" name="apartmentNumber" required>
+
+            <button type="button" onclick="submitAddTenant()">Add Tenant</button>
+        </form>
+    </div>
+
+    <div id="moveTenant" class="tab-content" style="display: none;">
+        <form id="moveTenantForm">
+            <label for="tenantIDMove">Tenant ID:</label>
+            <input type="text" id="tenantIDMove" name="tenantIDMove" required>
+
+            <label for="newApartmentMove">New Apartment Number:</label>
+            <input type="text" id="newApartmentMove" name="newApartmentMove" required>
+
+            <button type="submit">Move Tenant</button>
+        </form>
+    </div>
+
+    <div id="deleteTenant" class="tab-content" style="display: none;">
+        <form id="deleteTenantForm">
+            <label for="tenantIDDelete">Tenant ID:</label>
+            <input type="text" id="tenantIDDelete" name="tenantIDDelete" required>
+
+            <button type="submit">Delete Tenant</button>
+        </form>
+    </div>
+
+<script>
+    function showTab(tabName) {
+        const tabs = document.querySelectorAll('.tab-content');
+        tabs.forEach(tab => {
+            tab.style.display = 'none';
+        });
+
+        document.getElementById(tabName).style.display = 'block';
+    }
+</script>
 
 </body>
 </html>
