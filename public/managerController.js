@@ -10,10 +10,16 @@ const db = mysql.createConnection({
 });
 
 // Function to generate a random ID
-function generateRandomId() {
-    const timestamp = new Date().getTime();
-    const random = Math.floor(Math.random() * 1000);
-    return `${timestamp}_${random}`;
+function generateRandomId(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+    for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        result += characters.charAt(randomIndex);
+    }
+
+    return result;
 }
 
 // Add or Update Tenant
